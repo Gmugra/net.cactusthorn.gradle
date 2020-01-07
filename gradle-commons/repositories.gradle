@@ -1,0 +1,17 @@
+repositories {
+    maven {
+        name "The Project Local"
+        url = "file://${rootProject.projectDir}/project-maven-repository"
+    }
+    mavenLocal()
+    mavenCentral()
+}
+
+task listRepos() {
+    group = "verification"
+    description = 'Prints list of configured Maven repositories.'
+    doLast {
+        println "Repositories:"
+        project.repositories.each { println "Name: " + it.name + "; url: " + it.url }
+    }
+}

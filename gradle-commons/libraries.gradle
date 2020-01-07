@@ -1,0 +1,8 @@
+
+ext.libraries = [
+      junit4: "junit:junit:4.12"
+    , lombok: "org.projectlombok:lombok:1.18.4"
+    , slf4j: "org.slf4j:slf4j-api:1.7.25"
+    , logback_classic: "ch.qos.logback:logback-classic:1.2.3"
+    , cactusthorn_utils: "net.cactusthorn:utils:0.1"
+]

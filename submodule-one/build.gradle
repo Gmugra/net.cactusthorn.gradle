@@ -1,0 +1,17 @@
+
+description     = "Gradle demo project : Sub Module One"
+project.group   = "net.cactusthorn.gradle"
+project.version = "1.0.0"
+
+dependencies {
+    compileOnly libraries.lombok
+    annotationProcessor libraries.lombok;
+
+    compile libraries.cactusthorn_utils
+    compile libraries.slf4j
+    compile libraries.logback_classic
+
+    testCompileOnly libraries.lombok
+    testAnnotationProcessor libraries.lombok;
+    testCompile libraries.junit4
+}

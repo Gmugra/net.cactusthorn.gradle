@@ -1,0 +1,29 @@
+apply plugin: "java"
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+compileJava.options.encoding = java.nio.charset.StandardCharsets.UTF_8.name()
+tasks.withType(JavaCompile) {
+    options.encoding = java.nio.charset.StandardCharsets.UTF_8.name()
+}
+
+jar {
+    manifest {
+        attributes "Implementation-Version": project.version
+        attributes "Implementation-Title": project.name
+        attributes "Implementation-Vendor-Id": project.group
+    }
+}
+
+test {
+    //to show test System.out
+    /* testLogging.showStandardStreams = true */
+    
+    //to show all tests status
+    /*
+    afterTest { desc, result -> 
+        logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+    */
+}

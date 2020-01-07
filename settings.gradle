@@ -1,0 +1,7 @@
+rootProject.name = "net.cactusthorn.gradle"
+
+// need it to use maven-publish with Gradle version 4.10, for later Gradle versions this is not need.
+enableFeaturePreview('STABLE_PUBLISHING')
+
+include \
+    "submodule-one"
