@@ -3,6 +3,8 @@ description     = "Gradle demo project : Sub Module One"
 project.group   = "net.cactusthorn.gradle"
 project.version = "1.0.0"
 
+apply from: "${rootProject.projectDir}/gradle-commons/generated_src.gradle"
+
 dependencies {
     compileOnly libraries.lombok
     annotationProcessor libraries.lombok;

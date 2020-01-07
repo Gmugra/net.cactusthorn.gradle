@@ -3,6 +3,10 @@ description     = "Gradle demo project"
 project.group   = "net.cactusthorn.gradle"
 project.version = "1.0.0"
 
+allprojects  {
+    apply from: "${rootProject.projectDir}/gradle-commons/ide.gradle"
+}
+
 subprojects {
     apply from: "${rootProject.projectDir}/gradle-commons/java.gradle"
     apply from: "${rootProject.projectDir}/gradle-commons/libraries.gradle"

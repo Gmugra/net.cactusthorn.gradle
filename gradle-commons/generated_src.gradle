@@ -1,0 +1,10 @@
+sourceSets {
+    main {
+        java {
+            srcDir("${project.projectDir}/generated-src/main/java")
+        }
+        resources {
+            srcDir("${project.projectDir}/generated-src/main/resources")
+        }
+    }
+}
