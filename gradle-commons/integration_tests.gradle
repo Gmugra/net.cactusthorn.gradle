@@ -8,13 +8,19 @@ sourceSets {
         resources.srcDir file("${project.projectDir}/src/testIntegration/resources")
     }
 }
+
 configurations {
     testIntegrationCompile.extendsFrom testCompile
     testIntegrationRuntime.extendsFrom testRuntime
+    testIntegrationImplementation.extendsFrom testImplementation
+    testIntegrationCompileOnly.extendsFrom testCompileOnly
+    testIntegrationAnnotationProcessor.extendsFrom testAnnotationProcessor
+    testIntegrationRuntimeOnly.extendsFrom testRuntimeOnly
 }
+
 task testIntegration(type: Test) {
     group = "verification"
-    description = 'Runs the integration tests.'
+    description = "Runs the integration tests."
     testClassesDirs = sourceSets.testIntegration.output.classesDirs
     classpath = sourceSets.testIntegration.runtimeClasspath
 }
@@ -28,3 +34,6 @@ testIntegration {
         logger.quiet "Executing integration test \"${desc.name}\" [${desc.className}] with result: ${result.resultType}"
     }
 }
+
+//to run testIntegration task while running check task which is executed every build
+/* check.dependsOn testIntegration */

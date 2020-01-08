@@ -13,6 +13,9 @@ jar {
         attributes "Implementation-Version": project.version
         attributes "Implementation-Title": project.name
         attributes "Implementation-Vendor-Id": project.group
+        attributes "Build-Jdk": "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})"
+        attributes "Build-OS":"${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
+        attributes "Created-By": "Gradle ${gradle.gradleVersion}"
     }
 }
 

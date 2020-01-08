@@ -1,7 +1,14 @@
 # net.cactusthorn.gradle
 
-Gralde Demo project.
-
+Gralde Demo project. Demonstrate:
+1. Submodules
+1. Centralized scripts blocks
+1. Centralized dependency names/versions
+1. Generated sources
+1. Integration tests
+1. Wrapper
+1. IDE plug-ins
+1. Attributes in MANIFEST.MF
 
 ## How to
 How to skip tests:
