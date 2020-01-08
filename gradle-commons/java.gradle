@@ -19,11 +19,9 @@ jar {
 test {
     //to show test System.out
     /* testLogging.showStandardStreams = true */
-    
+
     //to show all tests status
-    /*
     afterTest { desc, result -> 
-        logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+        logger.quiet "Executing unit test \"${desc.name}\" [${desc.className}] with result: ${result.resultType}"
     }
-    */
 }

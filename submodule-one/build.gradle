@@ -4,6 +4,7 @@ project.group   = "net.cactusthorn.gradle"
 project.version = "1.0.0"
 
 apply from: "${rootProject.projectDir}/gradle-commons/generated_src.gradle"
+apply from: "${rootProject.projectDir}/gradle-commons/integration_tests.gradle"
 
 dependencies {
     compileOnly libraries.lombok

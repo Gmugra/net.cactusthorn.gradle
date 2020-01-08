@@ -1,0 +1,30 @@
+sourceSets {
+    testIntegration {
+        java {
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+            srcDir file("${project.projectDir}/src/testIntegration/java")
+        }
+        resources.srcDir file("${project.projectDir}/src/testIntegration/resources")
+    }
+}
+configurations {
+    testIntegrationCompile.extendsFrom testCompile
+    testIntegrationRuntime.extendsFrom testRuntime
+}
+task testIntegration(type: Test) {
+    group = "verification"
+    description = 'Runs the integration tests.'
+    testClassesDirs = sourceSets.testIntegration.output.classesDirs
+    classpath = sourceSets.testIntegration.runtimeClasspath
+}
+
+testIntegration {
+    //to show test System.out
+    /* testLogging.showStandardStreams = true */
+
+    //to show all tests status
+    afterTest { desc, result -> 
+        logger.quiet "Executing integration test \"${desc.name}\" [${desc.className}] with result: ${result.resultType}"
+    }
+}
