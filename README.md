@@ -1,6 +1,6 @@
 # net.cactusthorn.gradle
 
-Gralde Demo project. Demonstrate:
+Gradle Demo project (based on Gradle 4.10). Demonstrate:
 1. Submodules
 1. Centralized scripts blocks
 1. Centralized dependency names/versions
@@ -12,9 +12,9 @@ Gralde Demo project. Demonstrate:
 1. JaCoCo
    1. https://www.eclemma.org/jacoco/
    1. JaCoCo Plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html
-1. "all" jar (
-   1. self-sufficient archive which contains both classes and dependencies needed to run an application)
-1. "sources" jat
+1. "all" jar
+   1. self-sufficient archive which contains both classes and dependencies needed to run an application
+1. "sources" jar
    1. jar archive with source files, without unit/integration tests
 
 ## How to
