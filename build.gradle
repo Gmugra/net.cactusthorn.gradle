@@ -11,7 +11,7 @@ subprojects {
     project.group = "net.cactusthorn.gradle"
     project.version = "1.0.0"
 
-    apply from: "${rootProject.projectDir}/gradle-commons/java.gradle"
+    apply from: "${rootProject.projectDir}/gradle-commons/java_and_jars.gradle"
     apply from: "${rootProject.projectDir}/gradle-commons/libraries.gradle"
     apply from: "${rootProject.projectDir}/gradle-commons/repositories.gradle"
     apply from: "${rootProject.projectDir}/gradle-commons/jacoco.gradle"

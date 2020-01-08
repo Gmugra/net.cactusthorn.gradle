@@ -12,6 +12,10 @@ Gralde Demo project. Demonstrate:
 1. JaCoCo
    1. https://www.eclemma.org/jacoco/
    1. JaCoCo Plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html
+1. "all" jar (
+   1. self-sufficient archive which contains both classes and dependencies needed to run an application)
+1. "sources" jat
+   1. jar archive with source files, without unit/integration tests
 
 ## How to
 How to skip tests:
