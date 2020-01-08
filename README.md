@@ -9,6 +9,9 @@ Gralde Demo project. Demonstrate:
 1. Wrapper
 1. IDE plug-ins
 1. Attributes in MANIFEST.MF
+1. JaCoCo
+   1. https://www.eclemma.org/jacoco/
+   1. JaCoCo Plugin: https://docs.gradle.org/current/userguide/jacoco_plugin.html
 
 ## How to
 How to skip tests:
