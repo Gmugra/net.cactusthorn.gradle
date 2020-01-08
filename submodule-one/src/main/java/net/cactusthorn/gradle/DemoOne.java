@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.cactusthorn.utils.security.SHA1;
 
 @Slf4j
+@SuppressWarnings("checkstyle:magicnumber")
 public class DemoOne {
 
     public static void main(String... args) {
