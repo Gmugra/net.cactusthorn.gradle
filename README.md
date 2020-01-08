@@ -17,8 +17,14 @@ Gradle Demo project (based on Gradle 4.10). Demonstrate:
 1. "sources" jar
    1. jar archive with source files, without unit/integration tests
 1. The project local maven repository
+1. Checkstyle
+   1. http://checkstyle.sourceforge.net/
 
 ## How to
+How to run checkstyle:
+```bash
+gradlew checkstyleMain
+```
 How to skip tests:
 ```bash
 gradlew build -x test
