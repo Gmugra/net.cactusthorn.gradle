@@ -20,6 +20,8 @@ jar {
 }
 
 task allJar(type: Jar) {
+    group = "build"
+    description = "Assembles a jar archive containing both: classes and dependencies."
     manifest {
         attributes "Implementation-Version": project.version
         attributes "Implementation-Title": project.name
@@ -34,6 +36,8 @@ task allJar(type: Jar) {
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
+    group = "build"
+    description = "Assembles a jar archive containing sources (without unit/integration tests)."
     manifest {
         attributes "Implementation-Version": project.version
         attributes "Implementation-Title": project.name
@@ -42,7 +46,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
         attributes "Build-OS":"${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
         attributes "Created-By": "Gradle ${gradle.gradleVersion}"
     }
-    classifier = 'sources'
+    classifier = "sources"
     from sourceSets.main.allSource
 }
 

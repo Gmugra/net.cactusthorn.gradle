@@ -16,6 +16,7 @@ Gradle Demo project (based on Gradle 4.10). Demonstrate:
    1. self-sufficient archive which contains both classes and dependencies needed to run an application
 1. "sources" jar
    1. jar archive with source files, without unit/integration tests
+1. The project local maven repository
 
 ## How to
 How to skip tests:
