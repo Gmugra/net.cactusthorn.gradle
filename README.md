@@ -19,6 +19,7 @@ Gradle Demo project (based on Gradle 4.10). Demonstrate:
 1. The project local maven repository
 1. Checkstyle
    1. http://checkstyle.sourceforge.net/
+1. Maven publishing
 
 ## How to
 How to run checkstyle:

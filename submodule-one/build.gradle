@@ -1,4 +1,5 @@
 
+ext.mavenPOMName = "Sub Module One"
 description = "Gradle demo project : Sub Module One"
 
 apply from: "${rootProject.projectDir}/gradle-commons/generated_src.gradle"

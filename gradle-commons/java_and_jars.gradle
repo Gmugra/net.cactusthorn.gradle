@@ -60,7 +60,7 @@ test {
     /* testLogging.showStandardStreams = true */
 
     //to show all tests status
-    afterTest { desc, result -> 
+    afterTest { desc, result ->
         logger.quiet "Executing unit test \"${desc.name}\" [${desc.className}] with result: ${result.resultType}"
     }
 }

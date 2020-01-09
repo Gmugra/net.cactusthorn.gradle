@@ -1,4 +1,7 @@
 
+description = "Gradle demo project : Zip Module"
+
+//disable compilation and JARs generation
 compileJava.enabled = false
 tasks.withType(Jar) {
     enabled = false
@@ -15,4 +18,9 @@ task assembleZip(type: Zip) {
 
 artifacts {
     archives assembleZip
+}
+
+//remove all JARs from "archives" configuration
+configurations.archives.with {
+    artifacts.removeAll artifacts.findAll {artifact -> artifact.type.equals("jar") }
 }
