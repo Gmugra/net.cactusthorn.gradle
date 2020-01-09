@@ -1,0 +1,18 @@
+
+compileJava.enabled = false
+tasks.withType(Jar) {
+    enabled = false
+}
+
+task assembleZip(type: Zip) {
+    group = "build"
+    archiveName "${project.name}-${project.version}.zip"
+    destinationDir file("$buildDir/libs/")
+    from "${project.projectDir}"
+    include "properties/*"
+    description "Assemble archive $archiveName into ${relativePath(destinationDir)}"
+}
+
+artifacts {
+    archives assembleZip
+}
