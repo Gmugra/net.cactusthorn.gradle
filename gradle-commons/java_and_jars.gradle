@@ -8,28 +8,9 @@ tasks.withType(JavaCompile) {
     options.encoding = java.nio.charset.StandardCharsets.UTF_8.name()
 }
 
-jar {
-    manifest {
-        attributes "Implementation-Version": project.version
-        attributes "Implementation-Title": project.name
-        attributes "Implementation-Vendor-Id": project.group
-        attributes "Build-Jdk": "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})"
-        attributes "Build-OS":"${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
-        attributes "Created-By": "Gradle ${gradle.gradleVersion}"
-    }
-}
-
 task allJar(type: Jar) {
     group = "build"
     description = "Assembles a jar archive containing both: classes and dependencies."
-    manifest {
-        attributes "Implementation-Version": project.version
-        attributes "Implementation-Title": project.name
-        attributes "Implementation-Vendor-Id": project.group
-        attributes "Build-Jdk": "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})"
-        attributes "Build-OS":"${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
-        attributes "Created-By": "Gradle ${gradle.gradleVersion}"
-    }
     classifier = "all"
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
@@ -38,6 +19,11 @@ task allJar(type: Jar) {
 task sourcesJar(type: Jar, dependsOn: classes) {
     group = "build"
     description = "Assembles a jar archive containing sources (without unit/integration tests)."
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+tasks.withType(Jar) {
     manifest {
         attributes "Implementation-Version": project.version
         attributes "Implementation-Title": project.name
@@ -46,8 +32,6 @@ task sourcesJar(type: Jar, dependsOn: classes) {
         attributes "Build-OS":"${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
         attributes "Created-By": "Gradle ${gradle.gradleVersion}"
     }
-    classifier = "sources"
-    from sourceSets.main.allSource
 }
 
 artifacts {
