@@ -5,3 +5,11 @@ enableFeaturePreview('STABLE_PUBLISHING')
 
 include \
     "submodule-one"
+
+//include all projects whose project dirs exists in the "submodules" folder
+file("submodules").eachDir { dir ->
+    if (dir.name.startsWith("submodules-")) {
+        include dir.name
+        project(":${dir.name}").projectDir = dir
+    }
+}
