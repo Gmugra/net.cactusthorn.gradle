@@ -1,0 +1,32 @@
+/*
+FYI: it is no way with Gradle to set plugin version from expression, must be constant :(
+*/
+plugins {
+    id "org.springframework.boot" version "2.1.6.RELEASE"
+}
+
+mavenPOMName = "Sub Module One"
+description = "Gradle demo project : Sub Module Simple JAR with Spring-Boot"
+
+apply plugin: "io.spring.dependency-management"
+
+/*
+By default spring-boot is always build Boot-JAR,
+but here we want to have simple normal JAR
+*/
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = false
+}
+
+dependencies {
+
+    /* Spring boot get versions from plugin declaration, must not be version here */
+    implementation "org.springframework.boot:spring-boot-starter-aop"
+    implementation "org.springframework.boot:spring-boot-starter-logging"
+
+    testCompile libraries.junit4;
+    testCompile "org.springframework:spring-test"
+}

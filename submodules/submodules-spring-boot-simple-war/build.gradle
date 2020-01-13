@@ -1,0 +1,36 @@
+/*
+FYI: it is no way with Gradle to set plugin version from expression, must be constant :(
+*/
+plugins {
+    id "org.springframework.boot" version "2.1.6.RELEASE"
+    id "war" //to force spring boot to build WAR instead of Boot-JAR
+}
+
+mavenPOMName = "Sub Module Spring Boot WAR"
+description = "Gradle demo project : Sub Module Simple WAR with Spring-Boot"
+
+apply plugin: "io.spring.dependency-management"
+
+bootWar {
+    // by default baseName = project.name
+    baseName = "other-basename-for-war"
+}
+
+tasks.allJar.enabled = false
+tasks.sourcesJar.enabled = false
+
+dependencies {
+
+    /* Spring boot get versions from plugin declaration, must not be versions here */
+    implementation "org.springframework.boot:spring-boot-configuration-processor"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.springframework.boot:spring-boot-starter-freemarker"
+    implementation "org.springframework.boot:spring-boot-starter-mail"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+
+    //uncomment next to have /WEB-INF/lib-provided/ with tomcat in the WAR
+    //providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
+
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}
