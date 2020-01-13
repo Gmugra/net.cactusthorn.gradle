@@ -1,0 +1,34 @@
+apply plugin: "maven-publish"
+
+publishing {
+    publications {
+        cactusthorn(MavenPublication) {
+            afterEvaluate {
+                pom {
+                    name = mavenPOMName
+                    description = project.description
+                    licenses {
+                        license {
+                            name = "The BSD 2-clause (Simplified) License"
+                            url = "http://opensource.org/licenses/BSD-2-Clause"
+                        }
+                    }
+                    developers {
+                        developer {
+                            name = "Alexei Khatskevich"
+                        }
+                    }
+                }
+                configurations.archives.artifacts.each { art ->
+                    artifact source: art
+                }
+            }
+        }
+    }
+}
+
+tasks.withType(PublishToMavenLocal) {
+    doFirst {
+        println "Publishing(Maven Local): ${project.name} ${version}"
+    }
+}

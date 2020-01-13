@@ -43,6 +43,28 @@ How to generate wrapper with version 4.10
 gradle wrapper --gradle-version 4.10
 ```
 
+## Gradle vs Maven
+### Maven
+* ( ) declarative
+* ( ) build Lifecycle
+* (-) Transitive Dependencies -> "nearest definition"
+* (+-) incremental build support: with takari-lifecycle (https://github.com/takari/takari-lifecycle)
+* ( ) XML (easy to parse, better IDE integration, better back compatibility, complex to fail)
+* (+) multi-module = child to parent
+* (+) composite build: additional pom.xml (http://andresalmiray.com/composite-builds-with-maven-and-gradle/)
+* (+) build profiles
+* (+) wrapper: with takari-maven-plugin (https://github.com/takari/takari-maven-plugin)
+### Gradle
+* ( ) imperative
+* ( ) directed acyclic graph ("DAG") to determine the order in which tasks can be run
+* (+) Transitive Dependencies -> latest, fail, custom
+* (+) incremental build support.
+* ( ) Groovy/etc. (short, flexible, more chances for shit, required more skill)
+* (+) multi-module = parent to child
+* (+) composite build: setting.gradle
+* (+-) build profiles: using project property (-P)
+* (+) wrapper
+
 ## License
 Released under the BSD 2-Clause License
 ```
