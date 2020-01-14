@@ -13,3 +13,9 @@ file("submodules").eachDir { dir ->
         project(":${dir.name}").projectDir = dir
     }
 }
+file("spring-boot").eachDir { dir ->
+    if (dir.name.startsWith("spring-boot-")) {
+        include dir.name
+        project(":${dir.name}").projectDir = dir
+    }
+}
