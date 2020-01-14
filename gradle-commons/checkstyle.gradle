@@ -4,7 +4,7 @@ checkstyle {
     //to exclude checkstyle task from build task
     sourceSets = []
 
-    toolVersion "8.18"
+    toolVersion "8.28"
     configFile file("${rootProject.projectDir}/gradle-commons/checkstyle_checks.xml")
     configProperties.suppressionsFile = file("${rootProject.projectDir}/gradle-commons/checkstyle_suppressions.xml").absolutePath
 }
