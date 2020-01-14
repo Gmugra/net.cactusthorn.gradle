@@ -23,7 +23,8 @@ bootJar {
 
 dependencies {
 
-    /* Spring boot get versions from plugin declaration, must not be version here */
+    /* Spring boot resolve versions automatically based on "org.springframework.boot" plugin declaration,
+    must not be versions here */
     implementation "org.springframework.boot:spring-boot-starter-aop"
     implementation "org.springframework.boot:spring-boot-starter-logging"
 

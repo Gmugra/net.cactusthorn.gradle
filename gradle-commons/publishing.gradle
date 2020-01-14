@@ -19,12 +19,8 @@ publishing {
                         }
                     }
                 }
-                if (project.hasProperty("bootWar")) {
-                    artifact bootWar
-                } else {
-                    configurations.archives.artifacts.each { art ->
-                        artifact source: art
-                    }
+                configurations.archives.artifacts.each { art ->
+                    artifact source: art
                 }
             }
         }

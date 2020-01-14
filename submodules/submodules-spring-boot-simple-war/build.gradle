@@ -3,7 +3,7 @@ FYI: it is no way with Gradle to set plugin version from expression, must be con
 */
 plugins {
     id "org.springframework.boot" version "2.1.6.RELEASE"
-    id "war" //to force spring boot to build WAR instead of Boot-JAR
+    id "war" //to build WAR instead of Spring Boot-JAR
 }
 
 mavenPOMName = "Sub Module Spring Boot WAR"
@@ -11,17 +11,22 @@ description = "Gradle demo project : Sub Module Simple WAR with Spring-Boot"
 
 apply plugin: "io.spring.dependency-management"
 
+def warBaseName = "other-basename-for-war"
 bootWar {
-    // by default baseName = project.name
-    baseName = "other-basename-for-war"
+    // To assemble WAR with other name, by default baseName = project.name
+    baseName = "${warBaseName}"
+}
+war {
+    // To set in archives configuration WAR with other name, by default baseName = project.name
+    baseName = "${warBaseName}"
 }
 
 tasks.allJar.enabled = false
-tasks.sourcesJar.enabled = false
 
 dependencies {
 
-    /* Spring boot get versions from plugin declaration, must not be versions here */
+    /* Spring boot resolve versions automatically based on "org.springframework.boot" plugin declaration,
+    must not be versions here */
     implementation "org.springframework.boot:spring-boot-configuration-processor"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
@@ -33,4 +38,11 @@ dependencies {
     //providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
 
     testCompile "org.springframework.boot:spring-boot-starter-test"
+}
+
+/*
+Remove "all" jar from archives configuration
+*/
+configurations.archives.with {
+    artifacts.remove artifacts.find {artifact -> artifact.classifier.equals("all") }
 }
