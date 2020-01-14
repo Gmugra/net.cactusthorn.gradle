@@ -13,6 +13,17 @@ subprojects {
 
     apply from: "${rootProject.projectDir}/gradle-commons/java_and_jars.gradle"
 
+    /*
+    Usually you can set in the gradle.properties file:
+        Docker_liferay_container=liferay_node1
+        systemProp.sonar.host.url=https://sonarqube.demo-server.ag
+    But also possible to do same in the script
+    */
+    ext {
+        Docker_liferay_container="liferay_node1"
+    }
+    System.setProperty("sonar.host.url", "https://sonarqube.demo-server.ag")
+
     apply from: "${rootProject.projectDir}/gradle-commons/libraries.gradle"
 
     apply from: "${rootProject.projectDir}/gradle-commons/repositories.gradle"
