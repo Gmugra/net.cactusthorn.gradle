@@ -1,7 +1,7 @@
 # net.cactusthorn.gradle
 
 Gradle Demo project (based on Gradle 4.10). Demonstrate:
-1. Submodules
+1. Submodules & dynamic submodules form the sub folder
 1. Centralized scripts blocks
 1. Centralized dependency names/versions
 1. Generated sources
@@ -22,6 +22,7 @@ Gradle Demo project (based on Gradle 4.10). Demonstrate:
 1. Maven publishing
 1. Spring Boot
 1. OSGi
+1. gradle.properties in the build.gradle
 
 ## How to
 How to run checkstyle:
