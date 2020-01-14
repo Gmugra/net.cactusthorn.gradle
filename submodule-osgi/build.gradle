@@ -1,0 +1,25 @@
+
+// The build script block is required to define the dependency to the gradle
+// script used to create the BND file for liferay
+//
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:4.2.0"
+    }
+}
+
+mavenPOMName = "OSGi Module"
+description = "Gradle demo project : OSGi Module"
+
+// Apply bnd.builder plugin
+apply plugin: "biz.aQute.bnd.builder"
+
+dependencies {
+    implementation libraries.cactusthorn_utils
+}
+
+

@@ -1,10 +1,11 @@
 rootProject.name = "net.cactusthorn.gradle"
 
-// need it to use maven-publish with Gradle version 4.10, for later Gradle versions this is not need.
+// need it to use maven-publish without warnings with Gradle 4.10, for later Gradle versions this is not need.
 enableFeaturePreview('STABLE_PUBLISHING')
 
 include \
-    "submodule-one"
+    "submodule-one" \
+    , "submodule-osgi"
 
 //include all projects whose project dirs exists in the "submodules" folder
 file("submodules").eachDir { dir ->
@@ -13,6 +14,7 @@ file("submodules").eachDir { dir ->
         project(":${dir.name}").projectDir = dir
     }
 }
+//include all projects whose project dirs exists in the "spring-boot" folder
 file("spring-boot").eachDir { dir ->
     if (dir.name.startsWith("spring-boot-")) {
         include dir.name

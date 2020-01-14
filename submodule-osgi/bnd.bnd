@@ -1,0 +1,4 @@
+Export-Package: \
+    net.cactusthorn.gradle.*
+-includeresource: \
+    lib/utils-0.1.jar=utils-0.1.jar;lib:=true

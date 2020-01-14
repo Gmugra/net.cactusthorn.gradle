@@ -21,6 +21,7 @@ Gradle Demo project (based on Gradle 4.10). Demonstrate:
    1. http://checkstyle.sourceforge.net/
 1. Maven publishing
 1. Spring Boot
+1. OSGi
 
 ## How to
 How to run checkstyle:
