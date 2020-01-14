@@ -25,6 +25,16 @@ tasks.allJar.enabled = false
 
 dependencies {
 
+    /* To avoid compileJava warning:
+        Detecting annotation processors on the compile classpath has been deprecated.
+        Gradle 5.0 will ignore annotation processors on the compile classpath.
+        The following annotation processors were detected on the compile classpath:
+        'org.springframework.boot.configurationprocessor.ConfigurationMetadataAnnotationProcessor'.
+        Please add them to the annotation processor path instead.
+        If you did not intend to use annotation processors, you can use the '-proc:none' compiler argument to ignore them.
+    */
+    annotationProcessor libraries.lombok;
+
     /* Spring boot resolve versions automatically based on "org.springframework.boot" plugin declaration,
     must not be versions here */
     implementation "org.springframework.boot:spring-boot-configuration-processor"
